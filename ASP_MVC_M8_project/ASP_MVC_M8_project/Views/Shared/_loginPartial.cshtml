@@ -1,0 +1,31 @@
+﻿
+@if (User.IsInRole("admin"))
+{
+    <ul class="">
+        <li class="nav-content"><a class="dropdown-trigger" href="#!" data-target="dropdown1">Task Link<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+}
+@if (User.IsInRole("user"))
+{
+    <ul>
+        <li class="nav-content"><a class="dropdown-trigger" href="#!" data-target="dropdown2">Task Link<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+}
+@if (User.Identity.IsAuthenticated)
+{<ul class="offset-l1">
+        <li class="nav-content"><a> Dear -@User.Identity.Name  </a></li>
+        <li class="nav-content">
+            @Html.ActionLink("Logout", "Logout", "Account")
+        </li>
+    </ul>
+
+
+}
+else
+{<ul class="offset-l2 blue lighten-2">
+        <li class="nav-content">
+            <a href="~/Account/Login" style="padding:5px">Login</a>
+        </li>
+        <li class="nav-content"><a href="~/tblUsers/Create" style="padding:5px">Register</a></li>
+    </ul>
+}

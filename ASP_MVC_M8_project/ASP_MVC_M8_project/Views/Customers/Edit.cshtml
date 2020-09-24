@@ -1,0 +1,83 @@
+﻿@model ASP_MVC_M8_project.Models.Customer
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col s10 offset-l2">
+            <h4 class="center">Edit Customer Details </h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "red" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="col s8 offset-l2">
+                <div class="input-field col s6">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "red" })
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </div>
+                </div>
+
+                <div class="input-field col s6">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "red" })
+                        @Html.LabelFor(model => model.FatherName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </div>
+                </div>
+
+                <div class="input-field col s6">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "red" })
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    </div>
+                </div>
+
+                <div class="input-field col s6">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "red" })
+                        @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    </div>
+                </div>
+
+                <div class="input-field col s6">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "red" })
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    </div>
+                </div>
+
+
+                <div class="input-field col s12">
+                    <div class="left">  @Html.ActionLink("< Back to list", "Index", "Customers", new { @class = "btn blue lighten-2" })</div>
+
+                    <div class="right">
+                        <input type="submit" value="Save Changes" class="btn blue lighten-2" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+
+</div>

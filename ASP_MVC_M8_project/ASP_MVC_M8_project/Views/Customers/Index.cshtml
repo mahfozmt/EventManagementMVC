@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ASP_MVC_M8_project.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer Details</h2>
+@if (User.IsInRole("admin"))
+{
+    <p class="right">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn blue lighten-2" })
+    </p>
+}
+
+<table class="table z-depth-1-half ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FatherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            @if (User.IsInRole("admin"))
+            {
+                <td>
+
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "purple-text" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "red-text" })
+                </td>
+            }
+
+        </tr>
+    }
+
+</table>

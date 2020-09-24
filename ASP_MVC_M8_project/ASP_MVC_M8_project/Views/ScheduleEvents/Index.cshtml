@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ASP_MVC_M8_project.Models.ScheduleEvent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Schedule Events</h2>
+
+<p class="right">
+    @Html.ActionLink("Create New", "Create", "", new { @class = " btn-large waves-effect waves-light blue lighten-2 right" })
+</p>
+<table class="table striped centered z-depth-2">
+    <thead class="centered">
+        <tr>
+            <th>
+                Customer Name
+            </th>
+            <th>
+                Event Type
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Booking Date
+            </th>
+            <th> Action</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event_Type.EventType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookedEventId }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookedEventId }, new { onclick = "return confirm('Are you sure about delete the record?')" })
+
+            </td>
+        </tr>
+    }
+
+</table>

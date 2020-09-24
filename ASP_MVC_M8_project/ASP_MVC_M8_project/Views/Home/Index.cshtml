@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="slider">
+    <ul class="slides">
+        <li>
+
+            <img src="~/Slider/skyline-event-management-udaipur-porhgq.jpg" />   <!-- random image -->
+            <div class="caption center-align">
+                <h3>Creative :::</h3>
+                <h5 class="light shades-text blue darken-3  text-lighten-3">We are creative in every aspect of the event; planning, promotional and publicity as well as execution. .</h5>
+            </div>
+        </li>
+        <li>
+            <!-- random image -->
+            <img src="~/Slider/Meeting-Planning-Certification.jpg" />
+            <div class="caption black-text left-align">
+                <h3>Maticulous:::</h3>
+                <h5 class="light   blue-text darken-3 text-lighten-3">
+                    We are very particular in every aspect of the event management to guarantee the event we organise runs perfectly and efficiently.
+
+                </h5>
+            </div>
+        </li>
+        <li>
+            <!-- random image -->
+            <img src="~/Slider/2.jpg" />
+            <div class="caption  blue-text darken-3  right-align">
+                <h3>Satisfaction :::</h3>
+                <h5 class="light blue-text  text-lighten-3">Of course, achieving our clients’ satisfaction is what motivates us to bring out the best events.</h5>   s
+            </div>
+        </li>
+        <li>
+            <!-- random image -->
+            <img src="~/Slider/1.jpg" />
+            <div class="caption  blue-text darken-3  ">
+                <h3>Event Services :::</h3>
+                <h5 class="light  blue-text text-lighten-3">With many years of experience in event organising, we understand that there many factors that lead to a well-organised and successful event.</h5>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+
+@section scripts{
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slider').slider();
+        });
+    </script>
+
+
+}

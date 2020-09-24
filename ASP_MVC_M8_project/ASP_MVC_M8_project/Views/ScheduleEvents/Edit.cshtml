@@ -1,0 +1,86 @@
+﻿@model ASP_MVC_M8_project.Models.ScheduleEvent
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="container z-depth-1">
+            <h4 class="center">Update Schedule Event</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "red-text" })
+            @Html.HiddenFor(model => model.BookedEventId)
+            @Html.HiddenFor(model => model.EntryDate)
+            <div class="row">
+                <div class="input-field col s12">
+                    @Html.DropDownListFor(model => model.EventTypeId, ViewBag.EventTypeId as SelectList)
+                    @Html.LabelFor(model => model.Event_Type.EventType)
+                    @Html.ValidationMessageFor(model => model.EventTypeId, "", new { @class = "red-text" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    @Html.DropDownListFor(model => model.CustomerId, ViewBag.CustomerId as SelectList)
+                    @Html.Label("Customer Name")
+                    @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "red-text" })
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "datepicker", type = "text" } })
+                    @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "red-text" })
+                    @Html.LabelFor(model => model.StartTime)
+                </div>
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "datepicker", type = "text" } })
+                    @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "red-text" })
+                    @Html.LabelFor(model => model.EndTime)
+                </div>
+
+            </div>
+
+
+            <div class="row centered">
+                <div class="input-field col s3 offset-l3 ">
+                    <div>
+
+                        @Html.ActionLink("< Back to list", "Index", null, new { @class = "btn blue lighten-2" })
+                    </div>
+                </div>
+                <div class="input-field col s3 ">
+
+
+                    <button class="btn blue  lighten-2 waves-effect waves-light" type="submit">
+                        Save Changes
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+
+</div>
+
+@section scripts{
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.datepicker').datepicker();
+            $('select').formSelect();
+        })
+    </script>
+}

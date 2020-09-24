@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ASP_MVC_M8_project.Models.Event_Type>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Event Types </h2>
+@if (User.IsInRole("admin"))
+{
+    <div class="col s4">
+        <a class="btn-floating btn-large waves-effect waves-light teal lighten-1 right" href="~/Event/Create"><i class="material-icons">add</i></a>
+    </div>
+}
+
+
+<table class="striped highlight z-depth-1-half centered center-align">
+    <thead class="centered">
+        <tr>
+            <th>
+                Event Type
+            </th>
+            <th>
+                Event Type Image
+            </th>
+            @if (User.IsInRole("admin"))
+            {
+                <th> Action</th>
+            }
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(x => item.EventType)
+            </td>
+            <td>
+                <img src="@Url.Content(item.EventTypeImage)" width="100" />
+            </td>
+            @if (User.IsInRole("admin"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EventTypeId }) |
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EventTypeId }, new { onclick = "return confirm('Are you sure about delete the record?')" })
+                </td>
+            }
+
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Event Management</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/materialize/css/materialize.min1.0.0.css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+    <ul id="dropdown1" class="dropdown-content">
+
+        <li>@Html.ActionLink("Event Type", "Index", "Event")</li>
+        <li>@Html.ActionLink("Schedule Events", "Index", "ScheduleEvents")</li>
+        <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+        <shadow>
+
+        </shadow>
+        <li>@Html.ActionLink("User Management", "Index", "tblUsers")</li>
+
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+
+        <li>@Html.ActionLink("Event Type", "Index", "Event")</li>
+        <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+
+    </ul>
+    <nav class="blue darken-2">
+        <div class=" nav-wrapper container ">
+            <div >
+                <a class="brand-logo right ">Event-Management</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li class="nav-content">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="nav-content">@Html.ActionLink("About", "About", "Home")</li>
+                    <li class="nav-content">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.IsInRole("guest"))
+                    {
+                        <li>@Html.ActionLink("Event Type", "Index", "Event")</li>
+
+                    }
+                </ul>
+            </div>
+
+            <div class="offset-l1 purple lighten-2"> @Html.Partial("_loginPartial")</div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        <div id="containerbody">
+            @RenderBody()
+        </div>
+        <hr />
+        @Html.Partial("_footter")
+    </div>
+
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/materialize/materialize.min.1.0.0.js"></script>
+    <script src="~/Scripts/Site.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown-trigger").dropdown();
+
+            var mm = "jkhnakdfkjasdnf";
+            console.log(mm)
+        })
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
